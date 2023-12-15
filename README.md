@@ -1,11 +1,9 @@
 # MUSIC MOTION TOOLS
-controlling virtual instruments with body motions and movements
 
-This is a collection of tools which enable the user to interact with instruments without touching them 
+This is a collection of tools which enable the user to control virtual instruments without touching them.
+Human-Machine-Interaction is realized through body motions and movements
 
 # DO!-Station 
-The DO!-Station will be presented at the Carl Orff Museum Germany.
-
 The DO_Software_Package contains all the Software to install and setup the DO!-Station
 
 It consists of two MAIN-PARTS:
@@ -14,11 +12,11 @@ It consists of two MAIN-PARTS:
 
 2) The actual virtual instruments
 
-# Hand Tracking Software with Webcam
+#  Hand Tracking Software with Webcam
 You can use any Webcam with the DO-Software (although cameras with higher frame rates are recommended). 
 If you are using your webcam choose the "send_hand_landmarks_webcam.py" python script for hand tracking
 
-# Hand Tracking Software with OAK-D Camera
+#  Hand Tracking Software with OAK-D Camera
 OAK-D is a special camera with higher frame rate. If it available we recommmend use it with the according python script for hand tracking: hand_oak_60fps.py
 
 # PART 2
