@@ -15,7 +15,7 @@ Setup:
 6) You should be able to control the do station with hand gestures.
 7) **Turn On Sound** by clicking the big speaker icon.
 
-**Bugs**
+**Bugs: **
 If **Stabspiel** bars light up incorrect, please go back to mainmenu and load Stabspiel again.
 
 
