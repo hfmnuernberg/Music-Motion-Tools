@@ -7,7 +7,7 @@ Human-Machine-Interaction is realized through body motions and movements
 DO Station is currently only available as Mac-Application.
 
 Setup: 
-1) Download Code via the blue Code Button in the top right corner. Unzip file.
+1) Download ZIP file via the blue Code Button in the top right corner. Unzip file.
 2) Open Do_Standalone.mxf
 3) click the readfile box, navigate into the jweb-hands-landmarker-main-copy folder and select the jweb-hands-landmarker.html file.
 4) Default webcam should be choosen automatically. Optionally click the flip_image button.
