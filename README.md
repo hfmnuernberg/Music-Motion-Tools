@@ -4,12 +4,11 @@ This is a collection of tools which enable the user to control virtual instrumen
 Human-Machine-Interaction is realized through body motions and movements
 
 ## DO!-Station 
-DO Station Standalone-Software is currently only available as Mac-Application.
-On Windows you can download Max (from Cycling74.com) and open the Do.mxf file with Max. 
+DO Station is available as Max-Collective. You need to have Max from Cycling74.com installed (Demo-Version is sufficient)
 
 Setup: 
 1) Download ZIP file via the blue Code Button in the top right corner. Unzip file.
-2) Open Do_Standalone App
+2) Open Do.mxf file
 3) **Activate the hand tracking:** Click the readfile box, navigate into the jweb-hands-landmarker-main-copy folder and select the jweb-hands-landmarker.html file.
 4) Default webcam should be choosen automatically. Optionally click the flip_image button.
 5) In the video you should see your hands tracked. You can turn off hand tracking with the hand_tracking button.
