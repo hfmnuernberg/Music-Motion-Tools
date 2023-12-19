@@ -4,7 +4,8 @@ This is a collection of tools which enable the user to control virtual instrumen
 Human-Machine-Interaction is realized through body motions and movements
 
 ## DO!-Station 
-DO Station is currently only available as Mac-Application.
+DO Station Standalone-Software is currently only available as Mac-Application.
+On Windows you can download Max (from Cycling74.com) and open the Do.mxf file with Max.
 
 Setup: 
 1) Download ZIP file via the blue Code Button in the top right corner. Unzip file.
