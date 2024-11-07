@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Motion Tools Demo</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+    
+    
+</head>
+<body>
+    <header id="header">
+        <h1 id="headline">Music Motion Tools Demo</h1>
+        <div id="main-buttons">
+            <div class="button-container">
+                <p class="paragraph">Camera Control:</p>
+                <button id="start-button">Camera</button>
+            </div>
+            <div class="button-container">
+                <p class="paragraph">Select Sound:</p>
+                <button id="metallophone-button" class="radio-button" onclick="selectMetallophone()">Metallophone</button>
+                <button id="xylophone-button" class="radio-button" onclick="selectXylophone()">Xylophone</button>
+                <button id="handpan-button" class="radio-button" onclick="selectHandpan()">Hand Pan</button>
+            </div>
+            <div class="button-container">
+                <p class="paragraph">Exercise:</p>
+                <button id="exercise1-button" onclick="exercise1()">Exercise 1</button>
+                <button id="exercise2-button" onclick="exercise2()">Exercise 2</button>
+            </div>
+        </div>
+    </header>
+    <div id="main-content">
+        <video class="input_video"></video>
+        <canvas class="output_canvas"></canvas>
+        <div id="info-paragraphs">
+            <p>🎥 Music Motion Tools uses the Camera. To start click the Camera Button in the top left corner.</p>
+            <p>🔓 Security: There is no recording!</p>
+            <p>🏠 Hand Tracking is computed localy on your Machine and stays there!</p>
+            <p>😊 Enjoy playing!</p>
+        </div>
+    </div>
+    <footer id="footer">
+        <a href="https://hfm-nuernberg.de" class="link">hfm-nuernberg</a>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>
