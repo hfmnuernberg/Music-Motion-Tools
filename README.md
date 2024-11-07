@@ -4,7 +4,7 @@ This is a collection of tools which enables the user to control virtual instrume
 Human-Machine-Interaction happens through hand motions and movements
 
 ## Quick Demo
-A Quick Web App Demo is available [here[(https://hfmnuernberg.github.io/music-motion-tools/)
+A Quick Web App Demo is available [here](https://hfmnuernberg.github.io/music-motion-tools/)
 
 ## Max Collective Application 
 The Music Motion Tools are available as Max-Collective. You need to have Max from Cycling74.com installed (Demo-Version is sufficient)
