@@ -27,15 +27,26 @@ metallophoneButton.style.backgroundColor = green;
 // Canvas Setup --------------------------------------
 function resizeCanvas() {
     const videoAspectRatio = videoElement.videoWidth / videoElement.videoHeight || 1280 / 720; // Use video aspect ratio, or default to 16:9 if not available
+    const headerHeight = document.getElementById('header').offsetHeight;
+    const footerHeight = document.getElementById('footer').offsetHeight;
+    const windowHeight = window.innerHeight;
 
     let canvasWidth = window.innerWidth;
     let canvasHeight = canvasWidth / videoAspectRatio;
 
-    if (canvasHeight > window.innerHeight) {
-        canvasHeight = window.innerHeight;
+
+
+    const contentHeight = windowHeight - headerHeight - footerHeight;
+    if (canvasHeight > contentHeight) {
+        canvasHeight = contentHeight;
         canvasWidth = canvasHeight * videoAspectRatio;
     }
 
+    const mainContent = document.getElementById('main-content');
+    mainContent.style.marginTop = headerHeight + "px";
+    // canvasElement.style.marginTop = headerHeight + "px";
+    
+    
     canvasElement.width = canvasWidth;
     canvasElement.height = canvasHeight;
 
@@ -47,9 +58,7 @@ function resizeCanvas() {
     canvasElement.style.width = `${canvasWidth}px`;
     canvasElement.style.height = `${canvasHeight}px`;
 
-    if (!cameraStarted) {
-    showCameraInactiveMessage();
-  }
+    
 }
 
 // Call resizeCanvas initially to set up the canvas size
@@ -464,23 +473,6 @@ camera = new Camera(videoElement, {
   height: 540
 });
 
-function showCameraInactiveMessage() {
-    const message1 = "Camera is inactive.";
-    const message2 = "Please click 'Webcam Start' in the top left corner to begin.";
-    const fontSize = "30px Arial"; // You can adjust the font size
-    canvasCtx.font = fontSize;
-    canvasCtx.fillStyle = "black";
-    canvasCtx.textAlign = "center";
-
-    // Calculate the vertical position for each line
-    const lineHeight = parseInt(fontSize, 10); // Get line height from font size
-    const message1Y = canvasElement.height / 2 - lineHeight / 2; // Center the first line
-    const message2Y = message1Y + lineHeight; // Place the second line below
-
-    canvasCtx.fillText(message1, canvasElement.width / 2, message1Y);
-    canvasCtx.fillText(message2, canvasElement.width / 2, message2Y);
-}
-
 // Call this function initially to show the message if the camera is not started
 if (!cameraStarted) {
     canvasElement.style.display = 'none';  // Hide the canvas
@@ -494,14 +486,45 @@ startButton.addEventListener('click', async () => {
         canvasElement.style.display = 'none';  // Hide the canvas
         infoParagraphs.style.display = 'block'; // Show the paragraphs
         await camera.stop()
+        cameraStarted = false;
     } else {
-        startButton.style.backgroundColor = 'hsl(120, 50%, 80%)';
-        camera.start();
-        canvasElement.style.display = 'block'; // Show the canvas
-        infoParagraphs.style.display = 'none';  // Hide the paragraphs
-        canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
+        // startButton.style.backgroundColor = 'hsl(120, 50%, 80%)';
+        // camera.start();
+        // canvasElement.style.display = 'block'; // Show the canvas
+        // infoParagraphs.style.display = 'none';  // Hide the paragraphs
+        // canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
+        // cameraStarted = true;
+
+
+        try {
+            // Request camera access
+            await camera.start(); 
+      
+            // If access is granted, proceed
+            startButton.style.backgroundColor = 'hsl(120, 50%, 80%)';
+            canvasElement.style.display = 'block'; 
+            infoParagraphs.style.display = 'none';  
+            canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
+            cameraStarted = true; // Set cameraStarted to true only if successful
+          } catch (error) {
+            // Handle camera access denial
+            // console.error("Camera access denied:", error);
+            // alert("Camera access is required to use this application. Please grant permission.");
+            console.log("User denied camera access. Camera access is required to use this application. Please grant permission.");
+            // Keep the button inactive (cameraStarted remains false)
+            // if (error.name === 'NotAllowedError') {
+            //     console.error("Camera access denied:", error);
+            //     alert("Camera access is required to use this application. Please grant permission.");
+            //   } else {
+            //     // For other errors, you might want to re-throw or handle differently
+            //     throw error; 
+            //   }
+          }
+
+
+
     }
-    cameraStarted = !cameraStarted;
+    // cameraStarted = !cameraStarted;
 });
 
 
@@ -565,11 +588,13 @@ function exercise1 (){
         // exercise2Button.style.backgroundColor = gray;
     }
     else{
-        exerciseIsRunning = true;
-        if (exerciseIsRunning){stopAnimation();}
-        exercise1Button.style.backgroundColor = green;
-        exercise2Button.style.backgroundColor = gray;
-        startAnimation();
+        if (cameraStarted){
+            exerciseIsRunning = true;
+            if (exerciseIsRunning){stopAnimation();}
+            exercise1Button.style.backgroundColor = green;
+            exercise2Button.style.backgroundColor = gray;
+            startAnimation();
+        }
 
     }
     
@@ -583,11 +608,13 @@ function exercise2() {
         // exercise1Button.style.backgroundColor = gray;
         // exercise2Button.style.backgroundColor = gray;
     } else {
-        exerciseIsRunning = true;
-        if (exerciseIsRunning){stopAnimation();}
-        exercise1Button.style.backgroundColor = gray;
-        exercise2Button.style.backgroundColor = green;
-        startAnimation();
+        if (cameraStarted){
+            exerciseIsRunning = true;
+            if (exerciseIsRunning){stopAnimation();}
+            exercise1Button.style.backgroundColor = gray;
+            exercise2Button.style.backgroundColor = green;
+            startAnimation();
+        }
     }
     
     

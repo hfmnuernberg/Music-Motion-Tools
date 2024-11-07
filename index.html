@@ -13,21 +13,26 @@
     
 </head>
 <body>
+    <div id="logo-container">
+        <img src="logo.svg" alt="Your Logo Alt Text" id="logo">
+    </div>
     <header id="header">
         <h1 id="headline">Music Motion Tools Demo</h1>
-        <div id="main-buttons">
+
+        <hr>
+        <div id="controls-div">
             <div class="button-container">
-                <p class="paragraph">Camera Control:</p>
+                <!-- <p>Camera Control:</p> -->
                 <button id="start-button">Camera</button>
             </div>
             <div class="button-container">
-                <p class="paragraph">Select Sound:</p>
+                <!-- <p>Select Sound:</p> -->
                 <button id="metallophone-button" class="radio-button" onclick="selectMetallophone()">Metallophone</button>
                 <button id="xylophone-button" class="radio-button" onclick="selectXylophone()">Xylophone</button>
                 <button id="handpan-button" class="radio-button" onclick="selectHandpan()">Hand Pan</button>
             </div>
             <div class="button-container">
-                <p class="paragraph">Exercise:</p>
+                <!-- <p>Exercise:</p> -->
                 <button id="exercise1-button" onclick="exercise1()">Exercise 1</button>
                 <button id="exercise2-button" onclick="exercise2()">Exercise 2</button>
             </div>
@@ -37,14 +42,23 @@
         <video class="input_video"></video>
         <canvas class="output_canvas"></canvas>
         <div id="info-paragraphs">
-            <p>🎥 Music Motion Tools uses the Camera. To start click the Camera Button in the top left corner.</p>
-            <p>🔓 Security: There is no recording!</p>
-            <p>🏠 Hand Tracking is computed localy on your Machine and stays there!</p>
+            <p>⚠️ Music Motion Tools uses the Camera. There is no recording!</p>
+            <p>🏠 Hand Tracking is computed localy on this Machine.</p>
+            <hr>
+            <p>Instructions:</p>
+            <p>🎥 To start click the Camera Button in the top left corner.</p>
+            <p>👋 Show your hands to the camera. The index finger tips are marked red.</p>
+            <p>🔴 You can play by placing the red dots into the blue bars by moving your hands</p>
+            <p>🔊 Choose your instrument by clicking Metallophone, Xylophone or Hand Pan</p>
+            <p>🎼 Click one of the exercise buttons and try to hit the bars in time with the moving blocks</p>
+            <hr>
             <p>😊 Enjoy playing!</p>
         </div>
     </div>
     <footer id="footer">
         <a href="https://hfm-nuernberg.de" class="link">hfm-nuernberg</a>
+        
+        <!-- <a href="https://www.hfm-nuernberg.de/forschung-innovation/relevel/music-motion-tools" class="link">RE|LEVEL</a> -->
     </footer>
 
     <script src="index.js"></script>
